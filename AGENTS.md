@@ -15,8 +15,6 @@ issue-raid-commander  Analyze ready queue → detect conflicts → output sprint
       ↓
 issue-slayer × N      Implement in parallel worktrees → open PRs
       ↓
-  (code review)       Review each PR diff → fix findings
-      ↓
 quality-finisher      Audit PRs for test coverage → push tests or post comments
       ↓
 verify-sprint         Merge PR branches locally → visual check → squash merge to main

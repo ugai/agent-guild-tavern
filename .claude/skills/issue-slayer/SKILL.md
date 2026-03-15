@@ -115,12 +115,6 @@ lists all `Closes #<N>`. See `AGENTS.md` for eligibility criteria.
 
 Do **not** merge. Notify the approver that the PR is ready.
 
-## Post-PR Review
-
-After the PR is created, request a code review from a **separate context**
-(not the implementing agent) to catch blind spots. Use the project's review
-skill or tool if available.
-
 ## Cleanup (On Request)
 
 When instructed after the PR is merged:
