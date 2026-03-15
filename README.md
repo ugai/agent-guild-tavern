@@ -51,11 +51,10 @@ Issues labeled `agent:ready` are autonomously implemented and delivered as pull 
 
 ### From GitHub (recommended)
 
-```bash
-# Add the marketplace
-/plugin marketplace add ugai/agent-guild-tavern
+Run these inside a Claude Code session:
 
-# Install the plugin
+```
+/plugin marketplace add ugai/agent-guild-tavern
 /plugin install guild-tavern@guild-tavern-marketplace
 ```
 
