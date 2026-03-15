@@ -4,8 +4,9 @@ description: >
   Batch-verifies multiple sprint PR branches by merging them into a local
   ephemeral verify branch, running a build check and user verification, then
   squash-merging each PR into main. The verify branch is never pushed to
-  remote. Use after a sprint to merge multiple PRs together. NOT for
-  single-PR merges or test coverage audits (use quality-finisher for that).
+  remote. Run after quality-finisher has audited the PRs. Use after a sprint
+  to merge multiple PRs together. NOT for single-PR merges or test coverage
+  audits (use quality-finisher for that).
 ---
 
 # Verify Sprint
