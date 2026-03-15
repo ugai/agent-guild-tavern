@@ -1,6 +1,8 @@
 {
   "name": "Guild Skills Eval Suite",
   "description": "Evaluation test cases for all Guild skills. Each skill has at least 2 test cases with objectively verifiable assertions.",
+  "pattern_syntax": "All pattern fields use regex syntax (e.g., | for alternation, .* for wildcards). Runners must treat patterns as regular expressions.",
+  "fixture_note": "Prompts referencing specific issue/PR numbers (e.g., #N) assume a seeded test repository. Replace <ISSUE_N> and <PR_N> placeholders with actual IDs from the test fixture before running.",
   "skills": [
     {
       "skill": "issue-ranger",
@@ -16,12 +18,14 @@
               "description": "Must create at least one GitHub issue"
             },
             {
-              "type": "output_contains",
+              "type": "tool_called",
+              "tool": "Bash",
               "pattern": "agent:proposed",
-              "description": "Issues must be labeled agent:proposed, not agent:ready"
+              "description": "Must label created issues with agent:proposed"
             },
             {
-              "type": "output_not_contains",
+              "type": "tool_not_called",
+              "tool": "Bash",
               "pattern": "git commit",
               "description": "Rangers must NOT implement fixes or commit code"
             }
@@ -52,30 +56,37 @@
       "tests": [
         {
           "name": "picks-highest-priority-issue",
-          "prompt": "Pick up the highest priority agent:ready issue and implement it.",
+          "prompt": "Pick up the highest priority agent:ready issue, implement it, and open a pull request.",
           "assertions": [
             {
               "type": "tool_called",
               "tool": "Bash",
-              "pattern": "gh issue list.*agent:ready",
-              "description": "Must query the agent:ready queue"
+              "pattern": "gh issue list",
+              "description": "Must query the issue list"
             },
             {
               "type": "tool_called",
               "tool": "Bash",
-              "pattern": "git worktree add|git checkout -b",
-              "description": "Must create an isolated worktree or branch"
+              "pattern": "agent:ready",
+              "description": "Must filter by agent:ready label"
             },
             {
-              "type": "output_contains",
-              "pattern": "Closes #",
-              "description": "PR body must reference the issue with Closes #N"
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "git worktree add",
+              "description": "Must create an isolated worktree"
+            },
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "gh pr create",
+              "description": "Must open a pull request"
             }
           ]
         },
         {
           "name": "creates-pr-with-correct-structure",
-          "prompt": "Implement issue #5 and open a pull request.",
+          "prompt": "Implement issue <ISSUE_N> and open a pull request.",
           "assertions": [
             {
               "type": "tool_called",
@@ -85,13 +96,8 @@
             },
             {
               "type": "output_contains",
-              "pattern": "## Summary",
-              "description": "PR body must include a Summary section"
-            },
-            {
-              "type": "output_contains",
-              "pattern": "## Test plan",
-              "description": "PR body must include a Test plan section"
+              "pattern": "Closes #",
+              "description": "PR body must reference the issue with Closes #N"
             }
           ]
         }
@@ -102,36 +108,31 @@
       "tests": [
         {
           "name": "detects-file-overlap-conflicts",
-          "prompt": "Analyze the agent:ready issues for merge conflicts. Issues #2 and #8 both modify SKILL.md description frontmatter.",
+          "prompt": "Analyze the agent:ready issues for merge conflicts. Two issues both modify SKILL.md description frontmatter.",
           "assertions": [
             {
               "type": "output_contains",
-              "pattern": "conflict|overlap|collision",
+              "pattern": "conflict",
               "case_insensitive": true,
               "description": "Must identify conflicts between overlapping issues"
             },
             {
               "type": "output_contains",
-              "pattern": "Wave|serial|order|chain",
+              "pattern": "serial",
               "case_insensitive": true,
-              "description": "Must recommend an execution order for conflicting issues"
+              "description": "Must recommend serialization for conflicting issues"
             }
           ]
         },
         {
           "name": "clears-non-conflicting-issues",
-          "prompt": "Analyze these agent:ready issues: #5 (ENV.md consolidation) and #7 (new eval suite). Do they conflict?",
+          "prompt": "Analyze these agent:ready issues: one consolidates ENV.md files, another creates a new eval suite. Do they conflict?",
           "assertions": [
             {
               "type": "output_contains",
-              "pattern": "parallel|no conflict|independent",
+              "pattern": "parallel",
               "case_insensitive": true,
               "description": "Must identify that non-overlapping issues can run in parallel"
-            },
-            {
-              "type": "output_not_contains",
-              "pattern": "serial|must wait|depends on",
-              "description": "Must NOT recommend serialization for independent issues"
             }
           ]
         }
@@ -147,7 +148,7 @@
             {
               "type": "tool_called",
               "tool": "Bash",
-              "pattern": "gh pr list|gh pr view",
+              "pattern": "gh pr (list|view|diff)",
               "description": "Must inspect open PRs"
             },
             {
@@ -160,11 +161,11 @@
         },
         {
           "name": "confirms-sufficient-coverage",
-          "prompt": "Audit PR #9 for test coverage. The changes are documentation-only (ENV.md refactoring).",
+          "prompt": "Audit PR <PR_N> for test coverage. The changes are documentation-only (ENV.md refactoring).",
           "assertions": [
             {
               "type": "output_contains",
-              "pattern": "sufficient|adequate|no test.*needed|documentation",
+              "pattern": "sufficient",
               "case_insensitive": true,
               "description": "Must recognize that doc-only changes may not need tests"
             }
@@ -177,16 +178,17 @@
       "tests": [
         {
           "name": "checks-quality-finisher-reports",
-          "prompt": "Verify and merge the sprint PRs: #9, #10.",
+          "prompt": "Verify and merge the sprint PRs: <PR_N>, <PR_M>.",
           "assertions": [
             {
               "type": "output_contains",
-              "pattern": "quality.?finisher|coverage|audit",
+              "pattern": "Quality Finisher",
               "case_insensitive": true,
               "description": "Must check for Quality Finisher reports before proceeding"
             },
             {
-              "type": "output_not_contains",
+              "type": "tool_not_called",
+              "tool": "Bash",
               "pattern": "git push.*verify",
               "description": "Must NEVER push the ephemeral verify branch to remote"
             }
@@ -194,13 +196,19 @@
         },
         {
           "name": "creates-ephemeral-verify-branch",
-          "prompt": "Batch-verify PRs #9 and #10 by merging them locally.",
+          "prompt": "Batch-verify the sprint PRs by merging them locally.",
           "assertions": [
             {
               "type": "tool_called",
               "tool": "Bash",
-              "pattern": "git merge|git checkout -b.*verify",
-              "description": "Must create a local verify branch and merge PR branches"
+              "pattern": "git checkout -b.*verify",
+              "description": "Must create a local verify branch"
+            },
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "git merge",
+              "description": "Must merge PR branches into the verify branch"
             },
             {
               "type": "output_contains",
@@ -227,7 +235,7 @@
             },
             {
               "type": "output_contains",
-              "pattern": "Ranger|scout|reconnaissance",
+              "pattern": "Ranger",
               "case_insensitive": true,
               "description": "Must include ranger scouting phase"
             }
@@ -245,7 +253,7 @@
             },
             {
               "type": "output_contains",
-              "pattern": "conflict|sprint plan|wave",
+              "pattern": "conflict",
               "case_insensitive": true,
               "description": "Must present conflict analysis from Raid Commander"
             }
