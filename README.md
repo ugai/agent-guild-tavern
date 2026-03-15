@@ -61,6 +61,8 @@ Issues labeled `agent:ready` are autonomously implemented and delivered as pull 
 
 Skills are available as `/guild-tavern:<skill-name>` after installation.
 
+To receive updates automatically on startup, enable auto-update for the marketplace via `/plugin` → **Marketplaces** tab → **Enable auto-update**.
+
 ### Local development
 
 ```bash
