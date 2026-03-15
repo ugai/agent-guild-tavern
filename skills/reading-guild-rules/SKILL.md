@@ -1,6 +1,16 @@
-# AI Agent Guide
+---
+name: reading-guild-rules
+description: >
+  Reference document for Guild workflow protocol, conventions, and rules.
+  Read-only — no side effects. Covers commit/PR conventions, label protocol,
+  eligibility criteria, issue pickup, priority rules, execution patterns,
+  and bundle PR rules. Use when you need to look up Guild rules or conventions.
+  NOT a task skill — does not perform any actions.
+---
 
-This document covers the workflow protocol and rules for AI agents using the Guild.
+# Guild Rules
+
+Reference-only skill. Read this when you need Guild protocol details.
 
 This repository is structured as a **Claude Code plugin** (`guild-tavern`).
 When loaded via `claude --plugin-dir` or installed from a marketplace, skills
@@ -41,7 +51,7 @@ We use two primary patterns for agent work, both utilizing isolated `git worktre
 | **A (Standalone)** | User invokes the skill directly | **User approves** via chat | Single-issue work |
 | **B (Team)** | Team Lead spawns multiple agents | **Lead approves** via message | Parallel multi-issue sprint |
 
-### Commit & PR Conventions
+## Commit & PR Conventions
 
 - **Co-authorship trailer** — format: `Co-Authored-By: {model} ({tool}) <email>`. Use the actual model name:
   - Claude Code: `Co-Authored-By: {model} (Claude Code) <noreply@anthropic.com>`
@@ -53,7 +63,7 @@ We use two primary patterns for agent work, both utilizing isolated `git worktre
 - **PR Body**: Must include `Closes #<issue-number>`.
 - **One Issue, One PR** — default policy. Each issue gets its own PR.
 
-#### Bundle PR (Exception)
+### Bundle PR (Exception)
 
 Raid Commander (or a human) may group issues into a **Bundle PR** when ALL:
 
@@ -91,7 +101,7 @@ When creating new issues, an agent MUST:
 1. Add the `agent:proposed` label to every issue it creates
 2. Never add `agent:ready` — that label is reserved for human maintainers
 
-### Eligibility Criteria
+## Eligibility Criteria
 
 An agent may only work on an issue if **ALL** of the following are true:
 
@@ -100,26 +110,17 @@ An agent may only work on an issue if **ALL** of the following are true:
 3. Is Unassigned
 4. Does **NOT** have a `pending` label
 
-### Issue Pickup Protocol
+## Issue Pickup Protocol
 
 Before writing any code, an agent MUST:
 
 1. Self-assign the issue to itself
 2. Post a comment on the issue announcing that work has started
 
-### Priority
+## Priority
 
 When multiple eligible issues exist, agents favor:
 
 1. `bug` > `enhancement`
 2. `priority:p0` > `priority:p1` > `priority:p2` > `priority:p3` (no label = `p2`)
 3. Lowest issue number
-
-## Codebase Rules
-
-<!-- Add project-specific rules below. Examples:
-- Conflict-prone files that agents should touch minimally
-- Module structure conventions (e.g., "new features go in dedicated modules")
-- Build or test commands beyond the standard quality gate
--->
-

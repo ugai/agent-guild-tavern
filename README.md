@@ -79,22 +79,15 @@ git clone https://github.com/ugai/agent-guild-tavern.git
 mkdir -p .claude/skills .claude/agents
 cp -r ./agent-guild-tavern/skills/* .claude/skills/
 cp -r ./agent-guild-tavern/agents/* .claude/agents/
-
-# Copy the workflow guide
-cp ./agent-guild-tavern/AGENTS.md AGENTS.md
 ```
-
-Then add `@AGENTS.md` to your project's `CLAUDE.md` so agents pick up the
-workflow rules.
 
 ### Project Setup
 
 After installing, your project needs:
 
-1. **GitHub labels**: `agent:ready`, `agent:proposed` — see [AGENTS.md](AGENTS.md)
-2. **`AGENTS.md`** reference in `CLAUDE.md`: add `@AGENTS.md` to include workflow rules
-3. **Project-specific rules** (optional): add a "Codebase Rules" section to
-   your `AGENTS.md` with conflict-prone files, module conventions, etc.
+1. **GitHub labels**: `agent:ready`, `agent:proposed` — see [reading-guild-rules](skills/reading-guild-rules/SKILL.md)
+2. **Project-specific rules** (optional): add conflict-prone files, module
+   conventions, etc. to your project's `CLAUDE.md`
 
 ## Usage
 
@@ -113,7 +106,8 @@ When installed as standalone (copied to `.claude/skills/`), the namespace prefix
 
 ## Workflow
 
-See [AGENTS.md](AGENTS.md) for the complete workflow documentation, including:
+See [reading-guild-rules](skills/reading-guild-rules/SKILL.md) for the
+complete workflow documentation, including:
 
 - Recommended workflow (Scout → Approve → Analyze → Implement → Review → Verify)
 - Execution patterns (Standalone vs Team)
