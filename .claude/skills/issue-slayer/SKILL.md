@@ -3,8 +3,9 @@ name: issue-slayer
 description: >
   Implements a single GitHub Issue end-to-end inside an isolated git worktree
   and opens a pull request. Use when asked to pick up an issue, implement a
-  fix or feature, or deliver a PR. Requires the agent:ready label. NOT for
-  discovering issues (use issue-ranger) or running a full sprint (use
+  fix or feature, or deliver a PR. Requires the agent:ready label. For
+  multi-issue work, run issue-raid-commander first to detect conflicts. NOT
+  for discovering issues (use issue-ranger) or running a full sprint (use
   dispatching-guild-expedition). Does NOT merge PRs.
 ---
 
