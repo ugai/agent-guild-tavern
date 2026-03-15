@@ -6,7 +6,7 @@ description: >
   only — does NOT implement fixes or open PRs (use issue-slayer for that, or
   dispatching-guild-expedition for the full pipeline). Use when asked to find
   new issues, propose quests, scout the codebase, populate the issue board,
-  "find problems in the code", or "what needs fixing?".
+  "find problems in the code", or "what needs fixing?"
 ---
 
 # Issue Ranger
