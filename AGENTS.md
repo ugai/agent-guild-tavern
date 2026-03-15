@@ -8,9 +8,10 @@ Rules for agents (and humans) contributing to this repository.
 
 ## Shared Snippets
 
-Reusable documentation fragments live in `snippets/`. Each snippet is inlined
-verbatim into the skill `ENV.md` files that need it — heading levels may be
-adjusted to fit the target document, but the content must stay identical.
+Reusable documentation fragments live in `snippets/`. Each snippet's body
+(everything below the H1 title) is inlined into the skill `ENV.md` files that
+need it — heading levels may be adjusted to fit the target document, but the
+body content must stay identical.
 
 **When editing a snippet:**
 

@@ -21,7 +21,7 @@ gh issue list --label "agent:ready" \
   --json number,title,labels,body --limit 50
 ```
 
-Also read the project's `CLAUDE.md` to identify conflict-prone
+Also read the project's `CLAUDE.md` or `AGENTS.md` to identify conflict-prone
 files.
 
 If the query returns **zero issues**, output a one-line summary
