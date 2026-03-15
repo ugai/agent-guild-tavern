@@ -57,7 +57,13 @@ gh issue comment <N> --body "Starting work.
 Agent: **<agent-name>** | Model: **<model-name>** | Tool: **<tool-name>**"
 ```
 
-If assignment fails (race condition), pick another issue.
+If assignment fails (race condition):
+
+1. **Pattern A**: Pick the next highest-priority eligible issue.
+2. **Pattern B**: Re-check the task list for teammate claims, then pick the
+   next unclaimed issue. Notify the Team Lead of the conflict via
+   `SendMessage`. If all remaining issues are claimed, report back to the
+   Lead and stop.
 
 ## Worktree Setup
 

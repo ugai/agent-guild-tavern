@@ -53,6 +53,14 @@ git worktree add -B "qf/pr-<N>" .agent-worktrees/quality-finisher-pr-<N> "origin
 Write tests following the project's existing test conventions. Commit and push
 with the co-authorship trailer format defined in `AGENTS.md`.
 
+**If `git push` fails** (e.g., branch protection, diverged history):
+
+1. Try `git pull --rebase origin/<branch-name>` then push again.
+2. If push still fails due to branch protection, post a report comment
+   explaining the blocker and ask the user to push manually or adjust
+   branch protection settings.
+3. Do NOT force-push unless the user explicitly instructs you to.
+
 Remove the worktree after pushing:
 
 ```bash
