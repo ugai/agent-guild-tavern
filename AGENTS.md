@@ -22,7 +22,7 @@ The snippet sync test is also wired as a pre-commit hook.
 Install with:
 
 ```bash
-pip install pre-commit   # or: uv tool install pre-commit
+uv tool install pre-commit   # or: pip install pre-commit
 pre-commit install
 ```
 
