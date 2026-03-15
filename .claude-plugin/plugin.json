@@ -6,6 +6,6 @@
     "name": "ugai"
   },
   "repository": "https://github.com/ugai/agent-guild-tavern",
-  "license": "MIT",
+  "license": "CC0-1.0",
   "keywords": ["agents", "guild", "issue-management", "sprint"]
 }
