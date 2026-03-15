@@ -3,9 +3,9 @@ name: issue-raid-commander
 description: >
   Analyzes agent:ready issues for merge conflicts and outputs a sprint plan.
   Read-only assessment — does NOT spawn agents, write code, or pick up issues.
-  Use before spawning multiple issue-slayer agents to avoid parallel work
-  collisions. NOT for single-issue work. NOT for full pipeline orchestration
-  (use dispatching-guild-expedition).
+  Use before spawning multiple issue-slayer agents to check for conflicts
+  or plan a sprint. NOT for single-issue work. NOT for full pipeline
+  orchestration (use dispatching-guild-expedition).
 ---
 
 # Issue Raid Commander

@@ -5,7 +5,8 @@ description: >
   then posts well-scoped GitHub Issues for Issue Slayers to pick up. Discovery
   only — does NOT implement fixes or open PRs (use issue-slayer for that, or
   dispatching-guild-expedition for the full pipeline). Use when asked to find
-  new issues, propose quests, scout the codebase, or populate the issue board.
+  new issues, propose quests, scout the codebase, populate the issue board,
+  "find problems in the code", or "what needs fixing?".
 ---
 
 # Issue Ranger
