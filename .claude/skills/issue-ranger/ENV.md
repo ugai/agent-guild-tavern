@@ -9,19 +9,15 @@ Present the issue list and request user approval before posting anything.
 | Claude Code | `EnterPlanMode` |
 | Other | Output the list as text and ask the user to confirm |
 
-## Detecting Team Context (Pattern B)
-
-| Tool | How to detect |
-|------|---------------|
-| Claude Code | `team_name` parameter present, or assigned via `TaskList`/`TaskUpdate` |
-| Other | Check for equivalent task assignment mechanism in your tool |
-
 ## Team Coordination (Pattern B)
+
+See [shared/TEAM.md](../shared/TEAM.md) for detecting team context and base
+coordination commands.
+
+**Skill-specific actions:**
 
 | Action | Claude Code | Other |
 |--------|-------------|-------|
-| Detect team context | `team_name` parameter present, or assigned via `TaskList`/`TaskUpdate` | Check for equivalent task assignment mechanism |
-| Check teammate activity | Read `TaskList` | Check equivalent task list |
 | Send issue list for approval | `SendMessage` to Team Lead | Use available messaging tool |
 | Report posted issues | `SendMessage` to Team Lead | Use available messaging tool |
 
