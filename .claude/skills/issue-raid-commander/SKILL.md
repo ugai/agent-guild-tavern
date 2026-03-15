@@ -1,9 +1,10 @@
 ---
 name: issue-raid-commander
 description: >
-  Analyzes agent:ready issues for merge conflicts and outputs a sprint plan
-  for the team lead to act on. Use before spawning issue-slayer agents to
-  avoid parallel work collisions. Does NOT spawn agents or touch code.
+  Analyzes agent:ready issues for merge conflicts and outputs a sprint plan.
+  Read-only assessment — does NOT spawn agents, write code, or pick up issues.
+  Use before spawning multiple issue-slayer agents to avoid parallel work
+  collisions. NOT needed for single-issue work.
 ---
 
 # Issue Raid Commander
@@ -38,14 +39,19 @@ conflicting and say so.
 
 ## Output
 
-Tell the team lead what they need to act:
+Output a structured sprint plan with these sections:
 
-- Any **blocking conflicts**: what blocks what, which file, suggested order
-- **Merge order** for conflicting PRs only
-- If nothing conflicts, say so in one line
+```
+## Sprint Plan
 
-Choose the format that fits the situation. Prefer brevity. A table is
-appropriate for many issues; a sentence is fine for two.
+**Conflicts**: <none | list of conflict pairs with files and suggested order>
+**Merge order**: <ordered list, or "any order" if no conflicts>
+**Bundle candidates**: <none | groups with pattern and file list>
+**Ready to dispatch**: <issue numbers in recommended execution order>
+```
+
+Prefer brevity. Omit empty sections. A single sentence is fine when nothing
+conflicts.
 
 ### Bundle PR candidates
 

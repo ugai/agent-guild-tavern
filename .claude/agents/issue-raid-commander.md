@@ -1,9 +1,9 @@
 ---
 name: issue-raid-commander
 description: >
-  Analyzes agent:ready issues for merge conflicts and outputs a sprint plan
-  for the team lead to act on. Use before spawning issue-slayer agents to
-  avoid parallel work collisions. Does NOT spawn agents or touch code.
+  Analyzes agent:ready issues for merge conflicts and outputs a sprint plan.
+  Read-only assessment — does NOT spawn agents, write code, or pick up issues.
+  Use before spawning multiple issue-slayer agents in parallel.
 model: sonnet
 color: orange
 memory: project

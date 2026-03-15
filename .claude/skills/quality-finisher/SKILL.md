@@ -3,8 +3,9 @@ name: quality-finisher
 description: >
   Audits open PRs for test coverage gaps after issue-slayer opens them.
   Writes missing tests and pushes to the PR branch, posts structured coverage
-  comments, opens a prerequisite issue for cases requiring source-level changes,
-  or confirms that coverage is already sufficient. Run before verify-sprint.
+  comments, or confirms coverage is sufficient. Run after PRs are opened and
+  before verify-sprint. NOT for implementing features (use issue-slayer) or
+  reviewing code correctness (use a code review tool).
 ---
 
 # Quality Finisher

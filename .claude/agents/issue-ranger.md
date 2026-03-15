@@ -3,7 +3,8 @@ name: issue-ranger
 description: >
   Scouts the codebase for bugs, improvement opportunities, and missing
   features, then posts well-scoped GitHub Issues for Issue Slayers to pick up.
-  Works standalone or as a team member. Does NOT add the agent:ready label.
+  Discovery only — does NOT implement fixes or open PRs. Works standalone or
+  as a team member.
 model: opus
 color: cyan
 memory: project

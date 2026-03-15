@@ -1,10 +1,11 @@
 ---
 name: dispatching-guild-expedition
 description: >
-  Orchestrates a full sprint: Rangers scout in parallel, user approves issues,
-  Raid Commander detects conflicts, then Slayers implement in parallel.
-  Use for a complete autonomous development cycle from issue discovery to open
-  PRs. Does NOT merge PRs.
+  Orchestrates a full sprint from discovery to open PRs: Rangers scout in
+  parallel, user approves issues, Raid Commander detects conflicts, then
+  Slayers implement in parallel. Use when asked to run a full development
+  cycle, a sprint, or an expedition. NOT for single-issue work (use
+  issue-slayer) or discovery-only (use issue-ranger). Does NOT merge PRs.
 ---
 
 # Dispatching Guild Expedition

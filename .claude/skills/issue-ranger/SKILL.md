@@ -2,9 +2,10 @@
 name: issue-ranger
 description: >
   Scouts the codebase for bugs, improvement opportunities, and missing features,
-  then posts well-scoped GitHub Issues for Issue Slayers to pick up. Use when
-  asked to find new issues, propose quests, scout the codebase, or populate the
-  issue board. After posting, offers to add agent:ready to selected issues.
+  then posts well-scoped GitHub Issues for Issue Slayers to pick up. Discovery
+  only — does NOT implement fixes or open PRs (use issue-slayer for that, or
+  dispatching-guild-expedition for the full pipeline). Use when asked to find
+  new issues, propose quests, scout the codebase, or populate the issue board.
 ---
 
 # Issue Ranger

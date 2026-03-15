@@ -1,8 +1,9 @@
 ---
 name: issue-slayer
 description: >
-  Autonomous issue implementer for the project. Picks agent:ready issues,
-  implements in isolated worktree, opens PR. Works standalone or as team member.
+  Implements a single GitHub Issue end-to-end. Picks agent:ready issues,
+  implements in isolated worktree, opens PR. NOT for discovering issues (use
+  issue-ranger). Works standalone or as team member.
 model: sonnet
 color: green
 memory: project
