@@ -4,13 +4,7 @@ Rules for agents (and humans) contributing to this repository.
 
 ## Prerequisites
 
-This project uses [uv](https://docs.astral.sh/uv/) for Python dependency
-management and test execution. Install it before proceeding:
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh   # macOS/Linux
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"  # Windows
-```
+- [uv](https://docs.astral.sh/uv/) — Python dependency management and test execution
 
 ## Shared Snippets
 
