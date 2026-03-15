@@ -63,6 +63,15 @@ git merge origin/<branch-1> origin/<branch-2> origin/<branch-3> ...
 If the octopus merge fails due to conflicts, fall back to sequential merges.
 Report any conflicts to the user before proceeding.
 
+**If sequential merges also conflict:**
+
+1. Abort the failed merge (`git merge --abort`) to return to a clean state.
+2. Identify the specific PR pair(s) that conflict.
+3. Skip the conflicting PR and continue merging the remaining branches.
+4. Report to the user which PRs conflicted and with which files.
+5. Suggest running Raid Commander to re-analyze the conflicting PRs for a
+   revised merge order, or ask the user to resolve manually.
+
 ## Step 4 — Build Check
 
 After a successful merge, run a build to catch compile errors before
