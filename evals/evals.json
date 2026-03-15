@@ -1,0 +1,257 @@
+{
+  "name": "Guild Skills Eval Suite",
+  "description": "Evaluation test cases for all Guild skills. Each skill has at least 2 test cases with objectively verifiable assertions.",
+  "skills": [
+    {
+      "skill": "issue-ranger",
+      "tests": [
+        {
+          "name": "scout-posts-issues-with-correct-format",
+          "prompt": "Scout this repository for bugs and improvement opportunities. Focus on code quality.",
+          "assertions": [
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "gh issue create",
+              "description": "Must create at least one GitHub issue"
+            },
+            {
+              "type": "output_contains",
+              "pattern": "agent:proposed",
+              "description": "Issues must be labeled agent:proposed, not agent:ready"
+            },
+            {
+              "type": "output_not_contains",
+              "pattern": "git commit",
+              "description": "Rangers must NOT implement fixes or commit code"
+            }
+          ]
+        },
+        {
+          "name": "scout-respects-existing-issues",
+          "prompt": "Scout this repository for issues. There are already open issues on the board — avoid duplicates.",
+          "assertions": [
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "gh issue list",
+              "description": "Must check existing issues before posting"
+            },
+            {
+              "type": "output_contains",
+              "pattern": "duplicate",
+              "case_insensitive": true,
+              "description": "Must mention duplicate checking in its reasoning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "skill": "issue-slayer",
+      "tests": [
+        {
+          "name": "picks-highest-priority-issue",
+          "prompt": "Pick up the highest priority agent:ready issue and implement it.",
+          "assertions": [
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "gh issue list.*agent:ready",
+              "description": "Must query the agent:ready queue"
+            },
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "git worktree add|git checkout -b",
+              "description": "Must create an isolated worktree or branch"
+            },
+            {
+              "type": "output_contains",
+              "pattern": "Closes #",
+              "description": "PR body must reference the issue with Closes #N"
+            }
+          ]
+        },
+        {
+          "name": "creates-pr-with-correct-structure",
+          "prompt": "Implement issue #5 and open a pull request.",
+          "assertions": [
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "gh pr create",
+              "description": "Must create a pull request"
+            },
+            {
+              "type": "output_contains",
+              "pattern": "## Summary",
+              "description": "PR body must include a Summary section"
+            },
+            {
+              "type": "output_contains",
+              "pattern": "## Test plan",
+              "description": "PR body must include a Test plan section"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "skill": "issue-raid-commander",
+      "tests": [
+        {
+          "name": "detects-file-overlap-conflicts",
+          "prompt": "Analyze the agent:ready issues for merge conflicts. Issues #2 and #8 both modify SKILL.md description frontmatter.",
+          "assertions": [
+            {
+              "type": "output_contains",
+              "pattern": "conflict|overlap|collision",
+              "case_insensitive": true,
+              "description": "Must identify conflicts between overlapping issues"
+            },
+            {
+              "type": "output_contains",
+              "pattern": "Wave|serial|order|chain",
+              "case_insensitive": true,
+              "description": "Must recommend an execution order for conflicting issues"
+            }
+          ]
+        },
+        {
+          "name": "clears-non-conflicting-issues",
+          "prompt": "Analyze these agent:ready issues: #5 (ENV.md consolidation) and #7 (new eval suite). Do they conflict?",
+          "assertions": [
+            {
+              "type": "output_contains",
+              "pattern": "parallel|no conflict|independent",
+              "case_insensitive": true,
+              "description": "Must identify that non-overlapping issues can run in parallel"
+            },
+            {
+              "type": "output_not_contains",
+              "pattern": "serial|must wait|depends on",
+              "description": "Must NOT recommend serialization for independent issues"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "skill": "quality-finisher",
+      "tests": [
+        {
+          "name": "audits-pr-and-posts-comment",
+          "prompt": "Audit the open PRs for test coverage gaps.",
+          "assertions": [
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "gh pr list|gh pr view",
+              "description": "Must inspect open PRs"
+            },
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "gh pr comment",
+              "description": "Must post a structured coverage comment on the PR"
+            }
+          ]
+        },
+        {
+          "name": "confirms-sufficient-coverage",
+          "prompt": "Audit PR #9 for test coverage. The changes are documentation-only (ENV.md refactoring).",
+          "assertions": [
+            {
+              "type": "output_contains",
+              "pattern": "sufficient|adequate|no test.*needed|documentation",
+              "case_insensitive": true,
+              "description": "Must recognize that doc-only changes may not need tests"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "skill": "verify-sprint",
+      "tests": [
+        {
+          "name": "checks-quality-finisher-reports",
+          "prompt": "Verify and merge the sprint PRs: #9, #10.",
+          "assertions": [
+            {
+              "type": "output_contains",
+              "pattern": "quality.?finisher|coverage|audit",
+              "case_insensitive": true,
+              "description": "Must check for Quality Finisher reports before proceeding"
+            },
+            {
+              "type": "output_not_contains",
+              "pattern": "git push.*verify",
+              "description": "Must NEVER push the ephemeral verify branch to remote"
+            }
+          ]
+        },
+        {
+          "name": "creates-ephemeral-verify-branch",
+          "prompt": "Batch-verify PRs #9 and #10 by merging them locally.",
+          "assertions": [
+            {
+              "type": "tool_called",
+              "tool": "Bash",
+              "pattern": "git merge|git checkout -b.*verify",
+              "description": "Must create a local verify branch and merge PR branches"
+            },
+            {
+              "type": "output_contains",
+              "pattern": "squash",
+              "case_insensitive": true,
+              "description": "Must use squash-merge strategy for final merge to main"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "skill": "dispatching-guild-expedition",
+      "tests": [
+        {
+          "name": "spawns-rangers-in-parallel",
+          "prompt": "Run a full guild expedition on this repository.",
+          "assertions": [
+            {
+              "type": "tool_called",
+              "tool": "Agent",
+              "pattern": "issue-ranger",
+              "description": "Must spawn issue-ranger agents"
+            },
+            {
+              "type": "output_contains",
+              "pattern": "Ranger|scout|reconnaissance",
+              "case_insensitive": true,
+              "description": "Must include ranger scouting phase"
+            }
+          ]
+        },
+        {
+          "name": "runs-raid-commander-before-slayers",
+          "prompt": "Run a full sprint. Skip the ranger phase — issues are already posted.",
+          "assertions": [
+            {
+              "type": "tool_called",
+              "tool": "Agent",
+              "pattern": "issue-raid-commander",
+              "description": "Must run Raid Commander analysis before spawning Slayers"
+            },
+            {
+              "type": "output_contains",
+              "pattern": "conflict|sprint plan|wave",
+              "case_insensitive": true,
+              "description": "Must present conflict analysis from Raid Commander"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
