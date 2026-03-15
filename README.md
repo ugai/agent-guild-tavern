@@ -49,13 +49,23 @@ Issues labeled `agent:ready` are autonomously implemented and delivered as pull 
 
 ## Installation
 
-### As a Claude Code plugin (recommended)
+### From GitHub (recommended)
 
 ```bash
-# Load directly during development
-claude --plugin-dir /path/to/agent-guild-tavern
+# Add the marketplace
+/plugin marketplace add ugai/agent-guild-tavern
 
-# Skills are available as /guild-tavern:<skill-name>
+# Install the plugin
+/plugin install guild-tavern@guild-tavern-marketplace
+```
+
+Skills are available as `/guild-tavern:<skill-name>` after installation.
+
+### Local development
+
+```bash
+# Load without installing (for plugin development)
+claude --plugin-dir /path/to/agent-guild-tavern
 ```
 
 ### Manual (git clone)
