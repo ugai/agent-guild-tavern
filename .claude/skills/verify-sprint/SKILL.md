@@ -44,8 +44,9 @@ If no such comment exists, warn the user before proceeding.
 
 ## Step 2 — Fetch and Create Verify Branch
 
-**NEVER push this branch to remote** — it is a throwaway integration test.
-Pushing it would trigger CI, confuse collaborators, and leave stale branches.
+**NEVER push this branch to remote** — it is a throwaway local verification
+branch. Pushing it would trigger CI, confuse collaborators, and leave stale
+branches.
 
 ```bash
 git fetch origin
