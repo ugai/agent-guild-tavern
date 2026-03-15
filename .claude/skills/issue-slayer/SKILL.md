@@ -81,7 +81,8 @@ documentation (`CLAUDE.md`, `CONTRIBUTING.md`, etc.).
 writing code.
 **Pattern B**: Send the plan to the Lead and wait for approval.
 
-Do not create an `implementation_plan.md` file.
+Do not create an `implementation_plan.md` file — plans belong in conversation
+context or plan mode, not as committed artifacts that pollute the repository.
 
 ## Implementation
 

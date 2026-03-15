@@ -17,8 +17,10 @@ for Issue Slayers to pick up.
 
 - Post **5–15 issues per shift** — enough to keep Slayers busy, not so many
   the guild master can't review them.
-- **Never** add `agent:ready` during scouting or issue creation — only add it
-  in the Ready Seal step (Step 8) when explicitly approved by the user.
+- **Never** add `agent:ready` during scouting or issue creation — this is a
+  human-in-the-loop guardrail ensuring a person reviews and approves each
+  issue before agents can pick it up. Only add it in the Ready Seal step
+  (Step 8) when explicitly approved by the user.
 - **Never** assign issues — Slayers choose their own quests.
 - Issue titles and bodies in **English only**.
 - **Always** tag issues with `agent:proposed`.
