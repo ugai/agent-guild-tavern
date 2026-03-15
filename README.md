@@ -20,9 +20,9 @@ Issues labeled `agent:ready` are autonomously implemented and delivered as pull 
 <td align="center" width="33%"><img src="docs/assets/portrait-agent-raid-commander.png" width="220" alt="issue-raid-commander"></td>
 </tr>
 <tr>
-<td align="center"><strong><code>issue-ranger</code></strong><br><sub><a href=".claude/skills/issue-ranger/SKILL.md">SKILL.md</a> | <a href=".claude/agents/issue-ranger.md">Agent</a></sub></td>
-<td align="center"><strong><code>issue-slayer</code></strong><br><sub><a href=".claude/skills/issue-slayer/SKILL.md">SKILL.md</a> | <a href=".claude/agents/issue-slayer.md">Agent</a></sub></td>
-<td align="center"><strong><code>issue-raid-commander</code></strong><br><sub><a href=".claude/skills/issue-raid-commander/SKILL.md">SKILL.md</a> | <a href=".claude/agents/issue-raid-commander.md">Agent</a></sub></td>
+<td align="center"><strong><code>issue-ranger</code></strong><br><sub><a href="skills/issue-ranger/SKILL.md">SKILL.md</a> | <a href="agents/issue-ranger.md">Agent</a></sub></td>
+<td align="center"><strong><code>issue-slayer</code></strong><br><sub><a href="skills/issue-slayer/SKILL.md">SKILL.md</a> | <a href="agents/issue-slayer.md">Agent</a></sub></td>
+<td align="center"><strong><code>issue-raid-commander</code></strong><br><sub><a href="skills/issue-raid-commander/SKILL.md">SKILL.md</a> | <a href="agents/issue-raid-commander.md">Agent</a></sub></td>
 </tr>
 <tr>
 <td align="center" valign="top"><br><em>No Unknown Unknowns.</em><br><br>Ranges far. Crawls deep. Every wound in the codebase — named, scoped, filed. Nothing escapes the board.</td>
@@ -31,13 +31,13 @@ Issues labeled `agent:ready` are autonomously implemented and delivered as pull 
 </tr>
 </table>
 
-*`quality-finisher` (apprentice) — Audits post-slayer PRs for test coverage. Still learning the trade. [`SKILL.md`](.claude/skills/quality-finisher/SKILL.md)*
+*`quality-finisher` (apprentice) — Audits post-slayer PRs for test coverage. Still learning the trade. [`SKILL.md`](skills/quality-finisher/SKILL.md)*
 
 ### Workflow
 
 <table>
 <tr>
-<td align="center"><strong><code>dispatching-guild-expedition</code></strong><br><sub><a href=".claude/skills/dispatching-guild-expedition/SKILL.md">SKILL.md</a></sub></td>
+<td align="center"><strong><code>dispatching-guild-expedition</code></strong><br><sub><a href="skills/dispatching-guild-expedition/SKILL.md">SKILL.md</a></sub></td>
 </tr>
 <tr>
 <td align="center"><img src="docs/assets/cover-art-epic-expedition.jpg" width="600" alt="dispatching-guild-expedition"></td>
@@ -49,6 +49,15 @@ Issues labeled `agent:ready` are autonomously implemented and delivered as pull 
 
 ## Installation
 
+### As a Claude Code plugin (recommended)
+
+```bash
+# Load directly during development
+claude --plugin-dir /path/to/agent-guild-tavern
+
+# Skills are available as /guild-tavern:<skill-name>
+```
+
 ### Manual (git clone)
 
 ```bash
@@ -57,8 +66,8 @@ git clone https://github.com/ugai/agent-guild-tavern.git
 
 # Copy skills and agents into your project
 mkdir -p .claude/skills .claude/agents
-cp -r ./agent-guild-tavern/.claude/skills/* .claude/skills/
-cp -r ./agent-guild-tavern/.claude/agents/* .claude/agents/
+cp -r ./agent-guild-tavern/skills/* .claude/skills/
+cp -r ./agent-guild-tavern/agents/* .claude/agents/
 
 # Copy the workflow guide
 cp ./agent-guild-tavern/AGENTS.md AGENTS.md
@@ -78,14 +87,18 @@ After installing, your project needs:
 
 ## Usage
 
+When loaded as a plugin, skills are namespaced under `guild-tavern`:
+
 ```
-/issue-ranger                    # Scout for issues
-/issue-raid-commander            # Analyze queue for conflicts
-/issue-slayer                    # Pick up and implement an issue
-/quality-finisher                # Audit PR test coverage
-/verify-sprint                   # Batch-verify and merge PRs
-/dispatching-guild-expedition    # Run the full pipeline
+/guild-tavern:issue-ranger                    # Scout for issues
+/guild-tavern:issue-raid-commander            # Analyze queue for conflicts
+/guild-tavern:issue-slayer                    # Pick up and implement an issue
+/guild-tavern:quality-finisher                # Audit PR test coverage
+/guild-tavern:verify-sprint                   # Batch-verify and merge PRs
+/guild-tavern:dispatching-guild-expedition    # Run the full pipeline
 ```
+
+When installed as standalone (copied to `.claude/skills/`), the namespace prefix is not needed.
 
 ## Workflow
 

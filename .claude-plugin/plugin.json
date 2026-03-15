@@ -1,0 +1,11 @@
+{
+  "name": "guild-tavern",
+  "description": "Agent Guild skill set — issue discovery, implementation, QA, and sprint orchestration",
+  "version": "0.1.0",
+  "author": {
+    "name": "ugai"
+  },
+  "repository": "https://github.com/ugai/agent-guild-tavern",
+  "license": "CC0-1.0",
+  "keywords": ["agents", "guild", "issue-management", "sprint"]
+}
