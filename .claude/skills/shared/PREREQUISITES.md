@@ -16,5 +16,7 @@ gh --version
 gh auth status
 ```
 
-`gh auth status` must show an authenticated session with `repo` scope —
-otherwise issue and PR operations will fail silently or with permission errors.
+`gh auth status` must show an authenticated session with sufficient repository
+permissions (read/write access to Issues and Pull Requests). Authentication
+methods vary — classic PATs use the `repo` scope, fine-grained PATs and GitHub
+App tokens use granular permissions instead.
