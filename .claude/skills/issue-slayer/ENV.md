@@ -1,5 +1,7 @@
 # Environment-Specific Commands
 
+**Prerequisites**: see [shared/PREREQUISITES.md](../shared/PREREQUISITES.md).
+
 ## Tool Name
 
 When filling in `<tool-name>` in the claim comment, use the name of the tool you

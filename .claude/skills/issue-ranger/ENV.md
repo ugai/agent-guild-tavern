@@ -1,5 +1,7 @@
 # Environment-Specific Commands
 
+**Prerequisites**: see [shared/PREREQUISITES.md](../shared/PREREQUISITES.md).
+
 ## Plan Approval (Pattern A)
 
 Present the issue list and request user approval before posting anything.
