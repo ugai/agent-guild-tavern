@@ -4,7 +4,8 @@ description: >
   Orchestrates a full sprint from discovery to open PRs: Rangers scout in
   parallel, user approves issues, Raid Commander detects conflicts, then
   Slayers implement in parallel. Use when asked to run a full development
-  cycle, a sprint, or an expedition. NOT for single-issue work (use
+  cycle, a sprint, an expedition, or to "find and fix a bunch of issues"
+  or "run a full improvement pass". NOT for single-issue work (use
   issue-slayer) or discovery-only (use issue-ranger). Does NOT merge PRs.
 ---
 
