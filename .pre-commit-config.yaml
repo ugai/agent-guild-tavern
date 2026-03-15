@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: snippet-sync
+        name: Verify snippet consistency
+        entry: uv run pytest tests/test_snippet_sync.py -q
+        language: system
+        pass_filenames: false
+        files: '(snippets/|skills/.*/ENV\.md)'
