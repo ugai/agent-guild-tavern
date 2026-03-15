@@ -2,6 +2,10 @@
 
 This document covers the workflow protocol and rules for AI agents using the Guild.
 
+This repository is structured as a **Claude Code plugin** (`guild-tavern`).
+When loaded via `claude --plugin-dir` or installed from a marketplace, skills
+are namespaced as `/guild-tavern:<skill-name>`.
+
 ## Workflow
 
 ### Recommended Workflow
