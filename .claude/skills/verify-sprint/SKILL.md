@@ -48,7 +48,7 @@ If no such comment exists, warn the user before proceeding.
 
 ```bash
 git fetch origin
-git checkout -b verify/sprint-$(date +%Y-%m-%d) main
+git checkout -b verify/sprint-$(date +%Y-%m-%d) origin/main
 ```
 
 If the branch name already exists, append `-2`, `-3`, etc.

@@ -56,6 +56,7 @@ Issues labeled `agent:ready` are autonomously implemented and delivered as pull 
 git clone https://github.com/ugai/agent-guild-tavern.git
 
 # Copy skills and agents into your project
+mkdir -p .claude/skills .claude/agents
 cp -r ./agent-guild-tavern/.claude/skills/* .claude/skills/
 cp -r ./agent-guild-tavern/.claude/agents/* .claude/agents/
 
