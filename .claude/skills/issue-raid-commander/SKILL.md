@@ -24,6 +24,10 @@ gh issue list --label "agent:ready" \
 Also read the project's `AGENTS.md` or `CLAUDE.md` to identify conflict-prone
 files.
 
+If the query returns **zero issues**, output a one-line summary
+("No `agent:ready` issues in the queue.") and stop — there is nothing to
+analyze.
+
 ## Analysis
 
 For each issue, estimate which files it will touch. Use:
@@ -68,3 +72,10 @@ Bundle candidate: #178, #180, #182, #183
 ```
 
 The Slayer will create one commit per issue and a single PR.
+
+## Feedback
+
+When running standalone (not called by `dispatching-guild-expedition`),
+present the sprint plan to the user and wait for confirmation before
+concluding — the plan is a recommendation, not a final decision. When called
+as a sub-step of the expedition pipeline, the caller handles user approval.

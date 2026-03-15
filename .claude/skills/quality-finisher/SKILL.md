@@ -51,8 +51,14 @@ git fetch origin
 git worktree add -B "qf/pr-<N>" .agent-worktrees/quality-finisher-pr-<N> "origin/<branch-name>"
 ```
 
-Write tests following the project's existing test conventions. Commit and push
-with the co-authorship trailer format defined in `AGENTS.md`.
+Write tests following the project's existing test conventions.
+
+**Before committing**, run the project's test suite to confirm the new tests
+pass. Refer to the project's `CLAUDE.md`, `CONTRIBUTING.md`, or CI
+configuration for the exact test command. If the new tests fail, fix them
+before proceeding — do not push failing tests.
+
+Commit and push with the co-authorship trailer format defined in `AGENTS.md`.
 
 **If `git push` fails** (e.g., branch protection, diverged history):
 
