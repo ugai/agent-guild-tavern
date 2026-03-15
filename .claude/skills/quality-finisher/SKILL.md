@@ -55,7 +55,7 @@ with the co-authorship trailer format defined in `AGENTS.md`.
 
 **If `git push` fails** (e.g., branch protection, diverged history):
 
-1. Try `git pull --rebase origin/<branch-name>` then push again.
+1. Try `git fetch origin <branch-name> && git rebase origin/<branch-name>` then push again.
 2. If push still fails due to branch protection, post a report comment
    explaining the blocker and ask the user to push manually or adjust
    branch protection settings.
