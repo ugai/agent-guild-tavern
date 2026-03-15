@@ -109,7 +109,7 @@ When installed as standalone (copied to `.claude/skills/`), the namespace prefix
 See [reading-guild-rules](skills/reading-guild-rules/SKILL.md) for the
 complete workflow documentation, including:
 
-- Recommended workflow (Scout -> Approve -> Analyze -> Implement -> Review -> Verify)
+- Recommended workflow (Scout → Approve → Analyze → Implement → Review → Verify)
 - Execution patterns (Standalone vs Team)
 - Commit & PR conventions
 - Label protocol
