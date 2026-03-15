@@ -21,7 +21,7 @@ gh issue list --label "agent:ready" \
   --json number,title,labels,body --limit 50
 ```
 
-Also read the project's `AGENTS.md` or `CLAUDE.md` to identify conflict-prone
+Also read the project's `CLAUDE.md` to identify conflict-prone
 files.
 
 If the query returns **zero issues**, output a one-line summary
@@ -61,7 +61,7 @@ conflicts.
 ### Bundle PR candidates
 
 Flag groups of issues as `bundleable` when they meet the criteria in
-`AGENTS.md` (same pattern, small, no file conflicts, reviewable as one unit).
+`../reading-guild-rules/SKILL.md` (same pattern, small, no file conflicts, reviewable as one unit).
 Example output:
 
 ```

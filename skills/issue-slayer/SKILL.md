@@ -37,7 +37,7 @@ Detection: see [ENV.md](ENV.md) for how to detect team context in your tool.
 (no label = p2), then lowest issue number.
 
 **Never** pick without `agent:ready`. **Never** pick an assigned issue.
-One agent, one issue — unless working a **Bundle PR** (see `AGENTS.md`).
+One agent, one issue — unless working a **Bundle PR** (see `../reading-guild-rules/SKILL.md`).
 
 ```bash
 gh issue list --label "agent:ready" \
@@ -96,7 +96,7 @@ committed or not).
 ## Implementation
 
 - Follow the project's coding standards and conventions.
-- Co-author trailer: see Commit & PR Conventions in `AGENTS.md`.
+- Co-author trailer: see Commit & PR Conventions in `../reading-guild-rules/SKILL.md`.
 - **Pattern B**: Minimize changes to files that the project identifies as
   conflict-prone.
 
@@ -123,7 +123,7 @@ gh pr create --title "<type>: <description>" --body-file /tmp/pr_body_<N>.md
 PR body should include: `Closes #<N>`, overview, changes, and testing status.
 
 **Bundle PR**: One commit per issue (`Ref #<N>`), single worktree, PR body
-lists all `Closes #<N>`. See `AGENTS.md` for eligibility criteria.
+lists all `Closes #<N>`. See `../reading-guild-rules/SKILL.md` for eligibility criteria.
 
 Do **not** merge. Notify the approver that the PR is ready.
 

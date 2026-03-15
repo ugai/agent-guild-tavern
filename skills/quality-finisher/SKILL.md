@@ -58,7 +58,7 @@ pass. Refer to the project's `CLAUDE.md`, `CONTRIBUTING.md`, or CI
 configuration for the exact test command. If the new tests fail, fix them
 before proceeding — do not push failing tests.
 
-Commit and push with the co-authorship trailer format defined in `AGENTS.md`.
+Commit and push with the co-authorship trailer format defined in `../reading-guild-rules/SKILL.md`.
 
 **If `git push` fails** (e.g., branch protection, diverged history):
 
