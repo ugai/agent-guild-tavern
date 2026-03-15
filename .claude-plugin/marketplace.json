@@ -1,0 +1,16 @@
+{
+  "name": "guild-tavern-marketplace",
+  "owner": {
+    "name": "ugai"
+  },
+  "metadata": {
+    "description": "Agent Guild — multi-agent workflow for autonomous software development"
+  },
+  "plugins": [
+    {
+      "name": "guild-tavern",
+      "source": ".",
+      "description": "Agent Guild skill set — issue discovery, implementation, QA, and sprint orchestration"
+    }
+  ]
+}
