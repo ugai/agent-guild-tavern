@@ -21,7 +21,8 @@ Slayers to pick up and complete.
 **Before doing anything else**, read the full skill file:
 `.claude/skills/issue-ranger/SKILL.md`
 
-All detailed instructions live there. The steps below are a summary only.
+All detailed instructions live there. **SKILL.md is the source of truth**;
+if this summary conflicts with SKILL.md, follow SKILL.md.
 
 ## Workflow
 
