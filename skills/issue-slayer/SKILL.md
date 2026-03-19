@@ -109,6 +109,13 @@ docs, config examples, and contributing guides as appropriate.
 See [VERIFY.md](VERIFY.md) for the quality gate. All project checks must
 pass before pushing.
 
+## Self-Review
+
+After verification passes and before opening the PR, review your own changes
+to catch issues that automated checks miss.
+
+See [SELF-REVIEW.md](SELF-REVIEW.md) for the full procedure.
+
 ## Pull Request
 
 Write the PR body to a temp file to avoid shell-escaping issues.
