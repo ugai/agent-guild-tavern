@@ -115,6 +115,16 @@ complete workflow documentation, including:
 - Label protocol
 - Issue eligibility and priority rules
 
+## The Tavern's Creed
+
+The Guild Tavern was built for the lone adventurer — or a small party at most — who hires the Guild's agents to multiply their strength. A single commander dispatches Rangers to scout the land, Slayers to vanquish issues, and returns to the Tavern to reflect on the campaign.
+
+This is not a war room for vast armies. When dozens of soldiers march on the same battlefield, no amount of tactical planning from a Raid Commander can prevent them from stepping on each other's boots. Such campaigns have a name now: *enterprise*. The Tavern was never built for that.
+
+The Guild operates through the familiar language of Issues and Pull Requests — contracts pinned to the Tavern's quest board. The old ways still hold, where human judgment guides every critical turn. But a time may come when a Patron speaks directly to the Guild, and the agents carry out entire epics without pinning quests to the board.
+
+Until that day, the Tavern stands as it is: a place where one vibe guides many hands, and the work of a week is done before sundown.
+
 ## License
 
 [CC0 1.0 Universal](LICENSE) — public domain dedication.
