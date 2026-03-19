@@ -11,7 +11,7 @@ description: >
 
 # Dispatching Guild Expedition
 
-Full pipeline: Scout → Approve → Analyze → Implement.
+Full pipeline: Scout → Approve → Analyze → Implement → Retrospect.
 
 ## Step 0 — Focus Confirmation
 
@@ -102,3 +102,19 @@ All PRs are open. Run `verify-sprint` to batch-verify and squash-merge them:
 This will merge each PR branch locally, run the quality gate, let you
 visually inspect the result, then squash-merge to main.
 ```
+
+## Step 6 — End of Expedition
+
+After the sprint summary, provide a brief retrospective:
+
+- How many issues were scouted, approved, and implemented
+- Notable conflicts or problems encountered during the expedition
+- Any issues that were skipped, blocked, or deferred
+
+Then ask the user:
+
+> "Want to record this expedition summary somewhere?
+> (e.g., GitHub Discussion, Issue, project memory, or skip)"
+
+If the user chooses a destination, write the summary there. If they skip,
+move on — do not persist anything.

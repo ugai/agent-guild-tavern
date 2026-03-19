@@ -1,19 +1,25 @@
 ---
 name: issue-raid-commander
 description: >
-  Analyzes agent:ready issues for merge conflicts and outputs a sprint plan.
-  Read-only assessment — does NOT spawn agents, write code, or pick up issues.
-  Use before spawning multiple issue-slayer agents to check for conflicts
-  or plan a sprint. NOT for single-issue work. NOT for full pipeline
-  orchestration (use dispatching-guild-expedition).
+  Triages agent:proposed issues and analyzes agent:ready issues for merge
+  conflicts, then outputs a sprint plan. Read-only assessment — does NOT spawn
+  agents, write code, or pick up issues. Use before spawning multiple
+  issue-slayer agents to check for conflicts or plan a sprint. NOT for
+  single-issue work. NOT for full pipeline orchestration (use
+  dispatching-guild-expedition).
 ---
 
 # Issue Raid Commander
 
-Battlefield awareness without intervention. Assess the ready queue, detect
-collisions, and hand the team lead a plan they can execute immediately.
+Battlefield awareness without intervention. Triage incoming issues, assess the
+ready queue, detect collisions, and hand the team lead a plan they can execute
+immediately.
 
 ## Inputs
+
+Fetch two pools of issues:
+
+**Pool A — Ready queue** (execution candidates):
 
 ```bash
 gh issue list --label "agent:ready" \
@@ -21,12 +27,45 @@ gh issue list --label "agent:ready" \
   --json number,title,labels,body --limit 50
 ```
 
+**Pool B — Triage queue** (unreviewed issues):
+
+```bash
+gh issue list --label "agent:proposed" \
+  --search "state:open -label:agent:ready -label:pending" \
+  --json number,title,labels,body --limit 50
+```
+
 Also read the project's `CLAUDE.md` or `AGENTS.md` to identify conflict-prone
 files.
 
-If the query returns **zero issues**, output a one-line summary
-("No `agent:ready` issues in the queue.") and stop — there is nothing to
-analyze.
+If **both pools are empty**, output a one-line summary
+("No issues in the queue.") and stop.
+
+## Triage (Pool B)
+
+Skip this section if Pool B is empty.
+
+For each `agent:proposed` issue, evaluate:
+
+- **Duplicate?** — Is it a duplicate of or substantially overlaps with an
+  existing open issue (in either pool) or a recently closed one? Cite the
+  original.
+- **Well-scoped?** — Is the description specific enough for a Slayer to act on
+  without guesswork? Flag issues that need more info.
+- **In scope?** — Does it belong in this project? Flag anything out of scope.
+
+Output a triage report:
+
+```
+## Triage Report
+
+**Recommend ready**: #12, #15 — well-scoped, no blockers
+**Needs info**: #18 — reproduction steps missing
+**Duplicate**: #20 → duplicate of #8
+**Skip**: #22 — out of scope
+```
+
+Issues recommended as ready join Pool A for the analysis below.
 
 ## Analysis
 
