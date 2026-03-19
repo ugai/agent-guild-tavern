@@ -168,6 +168,6 @@ instruction before removing anything — same as normal cleanup.
 
 ```
 1. Lead: create team → create tasks (per issue) → spawn issue-slayer agents
-2. Each agent: claim → plan → Lead approval → implement → verify → PR
+2. Each agent: claim → plan → Lead approval → implement → verify → self-review → PR
 3. Lead: coordinate merge order → rebase if needed → shut down → delete team
 ```
