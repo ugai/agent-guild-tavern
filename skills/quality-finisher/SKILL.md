@@ -78,7 +78,7 @@ Commit and push with the co-authorship trailer format defined in `../reading-gui
    branch protection settings.
 3. Do NOT force-push unless the user explicitly instructs you to.
 
-Remove the worktree after pushing:
+Remove the worktree after pushing (Pattern B: wait for Lead instruction):
 
 ```bash
 git worktree remove .agent-worktrees/quality-finisher-pr-<N>

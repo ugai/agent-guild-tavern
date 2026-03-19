@@ -140,8 +140,10 @@ Pattern B: wait for Lead instruction before removing anything.
 
 ### Cleanup on Failure
 
-If implementation fails or is abandoned, clean up the worktree immediately to
-prevent `.agent-worktrees/` from accumulating stale directories:
+If implementation fails or is abandoned, clean up the worktree to prevent
+`.agent-worktrees/` from accumulating stale directories.
+
+**Pattern A**: clean up immediately:
 
 ```bash
 # Force-remove the worktree (handles uncommitted changes)
@@ -152,7 +154,8 @@ git branch -D <type>/issue-<N>-<desc>
 gh issue edit <N> --remove-assignee "@me"
 ```
 
-Pattern B: notify the Team Lead of the failure reason before cleanup.
+**Pattern B**: notify the Team Lead of the failure reason and wait for Lead
+instruction before removing anything — same as normal cleanup.
 
 ## Team Operation Flow
 

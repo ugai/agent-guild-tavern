@@ -1,6 +1,6 @@
 # Issue Body Template
 
-Use this template for every issue. Write the body to `issue_body_<N>.md`,
+Use this template for every issue. Write the body to `issue_body_<N>.tmp.md`,
 then pass it to `gh issue create --body-file`.
 
 ```markdown
