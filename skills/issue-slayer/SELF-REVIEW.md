@@ -16,13 +16,13 @@ Discover review criteria in this order:
 2. **Issue requirements** — re-read the issue to confirm all acceptance
    criteria are met
 3. **General** — if no project-specific criteria exist, review for:
-   correctness, edge cases, security (OWASP top 10), naming clarity,
+   correctness, edge cases, security (OWASP Top 10), naming clarity,
    unnecessary complexity
 
 ## Procedure
 
 1. Generate the full diff: `git diff origin/main...HEAD`
-2. If a sub-agent is available, spawn one with the diff and review criteria.
+2. If a subagent is available, spawn one with the diff and review criteria.
    Otherwise, review the diff yourself — re-read it as if seeing it for the
    first time
 3. List findings with severity (`error` / `warning` / `info`)
