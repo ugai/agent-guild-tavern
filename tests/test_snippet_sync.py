@@ -23,6 +23,7 @@ SNIPPET_TARGETS: dict[str, list[str]] = {
     "TEAM.md": [
         "issue-ranger",
         "issue-slayer",
+        "quality-finisher",
     ],
 }
 
