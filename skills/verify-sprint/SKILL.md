@@ -62,15 +62,38 @@ If the branch name already exists, append `-2`, `-3`, etc.
 git merge origin/<branch-1> origin/<branch-2> origin/<branch-3> ...
 ```
 
-If the octopus merge fails due to conflicts, fall back to sequential merges.
+If the octopus merge fails due to conflicts, fall back to sequential merges:
+
+```bash
+# Abort the failed octopus merge
+git merge --abort
+
+# Merge each branch one at a time
+git merge origin/<branch-1>
+git merge origin/<branch-2>
+# ... continue for each branch
+```
+
 Report any conflicts to the user before proceeding.
 
-**If sequential merges also conflict:**
+**If a sequential merge conflicts:**
 
-1. Abort the failed merge (`git merge --abort`) to return to a clean state.
-2. Identify the specific PR pair(s) that conflict.
+1. Abort the failed merge to return to a clean state:
+   ```bash
+   git merge --abort
+   ```
+2. Record which PR branch conflicted and which files are involved:
+   ```bash
+   # Re-attempt to inspect conflict details
+   git merge --no-commit origin/<conflicting-branch>
+   git diff --name-only --diff-filter=U
+   git merge --abort
+   ```
 3. Skip the conflicting PR and continue merging the remaining branches.
-4. Report to the user which PRs conflicted and with which files.
+4. After all non-conflicting branches are merged, report to the user:
+   - Which PRs conflicted
+   - Which files caused the conflict
+   - Which PRs were successfully merged
 5. Suggest running Raid Commander to re-analyze the conflicting PRs for a
    revised merge order, or ask the user to resolve manually.
 
