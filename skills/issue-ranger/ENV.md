@@ -57,7 +57,7 @@ Present the issue list and request user approval before posting anything.
 
 ## Writing and Deleting Temp Files
 
-Write the issue body to `issue_body_<N>.md`, then delete it after each issue.
+Write the issue body to `issue_body_<N>.tmp.md`, then delete it after each issue.
 
 Prefer your native file-write tool for reliability. Fall back to shell
 commands if no native tool is available.

@@ -4,7 +4,7 @@
     "name": "ugai"
   },
   "metadata": {
-    "description": "Agent Guild — multi-agent workflow for autonomous software development"
+    "description": "Agent Guild skill set — issue discovery, implementation, QA, and sprint orchestration"
   },
   "plugins": [
     {

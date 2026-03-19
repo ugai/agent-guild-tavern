@@ -13,6 +13,16 @@ description: >
 
 Post-PR test coverage audit. Confirm the kill is real before verify-sprint merges it.
 
+## Execution Mode
+
+**Pattern A (Standalone)**: Present findings and proposed test plan for user
+approval before pushing any test code.
+
+**Pattern B (Team Member)**: Send findings and proposed test plan to the Team
+Lead for approval before pushing. Cleanup requires Lead instruction.
+
+Detection: see [ENV.md](ENV.md) for how to detect team context in your tool.
+
 ## Inputs
 
 One or more PR numbers provided by the user.
@@ -68,7 +78,7 @@ Commit and push with the co-authorship trailer format defined in `../reading-gui
    branch protection settings.
 3. Do NOT force-push unless the user explicitly instructs you to.
 
-Remove the worktree after pushing:
+Remove the worktree after pushing (Pattern B: wait for Lead instruction):
 
 ```bash
 git worktree remove .agent-worktrees/quality-finisher-pr-<N>
