@@ -42,3 +42,17 @@ pre-commit run --all-files
 ```bash
 uv run pytest
 ```
+
+## Rubric Linter
+
+Shared rules (eligibility, priority, label protocol, etc.) from
+`skills/reading-guild-rules/SKILL.md` are codified in
+`rubrics/shared-rules.yaml`. The test `tests/test_rubric_lint.py` uses
+`pytest-llm-rubric` (LLM-as-judge) to verify that each targeted
+`SKILL.md` semantically expresses the relevant rules.
+
+```bash
+uv run pytest tests/test_rubric_lint.py -v   # requires Ollama
+```
+
+The rubric lint is also wired as a pre-commit hook (`rubric-lint`).

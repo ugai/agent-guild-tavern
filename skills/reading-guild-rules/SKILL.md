@@ -16,6 +16,13 @@ This repository is structured as a **Claude Code plugin** (`guild-tavern`).
 When loaded via `claude --plugin-dir` or installed from a marketplace, skills
 are namespaced as `/guild-tavern:<skill-name>`.
 
+## Shared Rules Rubric
+
+The rules in this document are the human-readable source of truth.
+A machine-readable counterpart lives in `rubrics/shared-rules.yaml`, and
+`tests/test_rubric_lint.py` verifies that each targeted `SKILL.md` expresses
+the relevant rules. When updating rules here, keep the rubric in sync.
+
 ## Workflow
 
 ### Recommended Workflow

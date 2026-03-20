@@ -7,3 +7,9 @@ repos:
         language: system
         pass_filenames: false
         files: '(snippets/|skills/.*/ENV\.md)'
+      - id: rubric-lint
+        name: Verify shared rules in SKILL.md
+        entry: uv run pytest tests/test_rubric_lint.py -q
+        language: system
+        pass_filenames: false
+        files: '(rubrics/|skills/.*/SKILL\.md)'
