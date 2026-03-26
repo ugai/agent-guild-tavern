@@ -28,8 +28,9 @@ criteria:
   - id: label-protocol
     rule: >
       Agents must add the agent:proposed label to every issue they create.
-      Agents must never add the agent:ready label — that label is reserved
-      for human maintainers.
+      Agents must not add the agent:ready label on their own — that label
+      is reserved for human maintainers. The only exception is when a user
+      explicitly approves specific issues for readiness.
     skills: [issue-ranger, quality-finisher]
 
   - id: pickup-protocol

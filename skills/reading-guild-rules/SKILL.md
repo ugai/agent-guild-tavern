@@ -106,7 +106,7 @@ They are **not yet approved** for autonomous implementation. Agents must wait un
 When creating new issues, an agent MUST:
 
 1. Add the `agent:proposed` label to every issue it creates
-2. Never add `agent:ready` — that label is reserved for human maintainers
+2. Never add `agent:ready` on its own — that label is reserved for human maintainers. The only exception is when a user explicitly approves specific issues for readiness
 
 ## Eligibility Criteria
 
