@@ -12,6 +12,7 @@ on:
       - 'snippets/**'
       - 'skills/**/ENV.md'
       - 'tests/test_snippet_sync.py'
+  workflow_dispatch:
 
 jobs:
   snippet-sync:
