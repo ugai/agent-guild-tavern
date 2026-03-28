@@ -1,0 +1,55 @@
+# Shared rules extracted from reading-guild-rules/SKILL.md.
+# Machine-readable counterpart of the human-readable Guild Rules.
+# Tests in tests/test_rubric_lint.py verify that each targeted SKILL.md
+# expresses these rules.
+#
+# reference_doc: path to the canonical source document. When a skill
+# references this document instead of inlining the rule, the test verifies
+# both: (1) the skill contains a reference, and (2) the referenced document
+# defines the rule.
+
+reference_doc: skills/reading-guild-rules/SKILL.md
+
+criteria:
+  - id: eligibility
+    rule: >
+      An agent may only work on an issue if ALL of the following are true:
+      (1) has the agent:ready label, (2) is open, (3) is unassigned,
+      (4) does NOT have a pending label.
+    skills: [issue-slayer]
+
+  - id: priority
+    rule: >
+      When multiple eligible issues exist, agents prioritize: bug over
+      enhancement; then p0 > p1 > p2 > p3 (no priority label defaults
+      to p2); then lowest issue number as tiebreaker.
+    skills: [issue-slayer]
+
+  - id: label-protocol
+    rule: >
+      Agents must add the agent:proposed label to every issue they create.
+      Agents must not add the agent:ready label on their own — that label
+      is reserved for human maintainers. The only exception is when a user
+      explicitly approves specific issues for readiness.
+    skills: [issue-ranger, quality-finisher]
+
+  - id: pickup-protocol
+    rule: >
+      Before writing any code, an agent must self-assign the issue and
+      post a comment announcing that work has started.
+    skills: [issue-slayer]
+
+  - id: co-authorship-trailer
+    rule: >
+      Every commit must include a Co-Authored-By trailer with the format
+      "Co-Authored-By: {model} ({tool}) <email>", using the actual model
+      name (not a placeholder).
+    skills: [issue-slayer, quality-finisher]
+
+  - id: one-issue-one-pr
+    rule: >
+      Default policy is one issue per PR. The exception is a Bundle PR,
+      which is allowed only when all issues share the same fix pattern,
+      each is small complexity, there are no file conflicts, and the
+      total diff is reviewable as a single unit.
+    skills: [issue-slayer]

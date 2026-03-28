@@ -129,8 +129,10 @@ gh pr create --title "<type>: <description>" --body-file /tmp/pr_body_<N>.md
 
 PR body should include: `Closes #<N>`, overview, changes, and testing status.
 
-**Bundle PR**: One commit per issue (`Ref #<N>`), single worktree, PR body
-lists all `Closes #<N>`. See `../reading-guild-rules/SKILL.md` for eligibility criteria.
+**Bundle PR**: Allowed only when ALL: same fix pattern, each issue is small
+complexity, no file conflicts, and total diff is reviewable as a single unit.
+One commit per issue (`Ref #<N>`), single worktree, PR body lists all
+`Closes #<N>`. See `../reading-guild-rules/SKILL.md` for full details.
 
 Do **not** merge. Notify the approver that the PR is ready.
 

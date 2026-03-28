@@ -42,3 +42,23 @@ pre-commit run --all-files
 ```bash
 uv run pytest
 ```
+
+## Rubric Linter
+
+Shared rules (eligibility, priority, label protocol, etc.) from
+`skills/reading-guild-rules/SKILL.md` are codified in
+`rubrics/shared-rules.yaml`. The test `tests/test_rubric_lint.py` uses
+`pytest-llm-rubric` (LLM-as-judge) to verify that each targeted
+`SKILL.md` semantically expresses the relevant rules.
+
+```bash
+uv run pytest tests/test_rubric_lint.py -v
+```
+
+Requires an LLM backend. Configure `llm_rubric_auto_models` in
+`pyproject.toml` (Ollama by default; falls back to Anthropic if
+`ANTHROPIC_API_KEY` is set). See `pyproject.toml` for the current list.
+
+The rubric lint is also wired as a pre-commit hook (`rubric-lint`),
+triggered only when `skills/*/SKILL.md` or `rubrics/` files change.
+If no LLM backend is available, skip with `git commit --no-verify`.
