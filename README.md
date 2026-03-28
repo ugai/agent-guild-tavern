@@ -58,7 +58,7 @@ Run these inside a Claude Code session:
 /plugin install guild-tavern@guild-tavern-marketplace
 ```
 
-Skills are available as `/guild-tavern:<skill-name>` after installation.
+Skills are available as `/<skill-name>` after installation (e.g. `/issue-slayer`).
 
 To receive updates automatically on startup, enable auto-update for the marketplace via `/plugin` → **Marketplaces** tab → **Enable auto-update**.
 
@@ -91,18 +91,22 @@ After installing, your project needs:
 
 ## Usage
 
-When loaded as a plugin, skills are namespaced under `guild-tavern`:
+Start here:
 
 ```
-/guild-tavern:issue-ranger                    # Scout for issues
-/guild-tavern:issue-raid-commander            # Analyze queue for conflicts
-/guild-tavern:issue-slayer                    # Pick up and implement an issue
-/guild-tavern:quality-finisher                # Audit PR test coverage
-/guild-tavern:verify-sprint                   # Batch-verify and merge PRs
-/guild-tavern:dispatching-guild-expedition    # Run the full pipeline
+/reading-guild-rules
 ```
 
-When installed as standalone (copied to `.claude/skills/`), the namespace prefix is not needed.
+This prints the full workflow guide, skill descriptions, and label conventions. From there:
+
+```
+/issue-ranger                    # Scout for issues
+/issue-raid-commander            # Analyze queue for conflicts
+/issue-slayer                    # Pick up and implement an issue
+/quality-finisher                # Audit PR test coverage
+/verify-sprint                   # Batch-verify and merge PRs
+/dispatching-guild-expedition    # Run the full pipeline
+```
 
 ## Workflow
 
