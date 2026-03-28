@@ -4,10 +4,10 @@ Uses pytest-llm-rubric's LLM-as-judge infrastructure to semantically
 check whether a SKILL.md document expresses a given rule from the shared
 rubric (rubrics/shared-rules.yaml).
 
-Two-pass verification:
+Three-pass verification:
   1. Does the skill document itself express the rule (inline)?
-  2. If not, does the skill reference the canonical source document,
-     AND does that document express the rule?
+  2. If not, does the skill reference the canonical source document?
+  3. If so, does that reference document define the rule?
 """
 
 from pathlib import Path

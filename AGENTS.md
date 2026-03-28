@@ -52,7 +52,13 @@ Shared rules (eligibility, priority, label protocol, etc.) from
 `SKILL.md` semantically expresses the relevant rules.
 
 ```bash
-uv run pytest tests/test_rubric_lint.py -v   # requires Ollama
+uv run pytest tests/test_rubric_lint.py -v
 ```
 
-The rubric lint is also wired as a pre-commit hook (`rubric-lint`).
+Requires an LLM backend. Configure `llm_rubric_auto_models` in
+`pyproject.toml` (Ollama by default; falls back to Anthropic if
+`ANTHROPIC_API_KEY` is set). See `pyproject.toml` for the current list.
+
+The rubric lint is also wired as a pre-commit hook (`rubric-lint`),
+triggered only when `skills/*/SKILL.md` or `rubrics/` files change.
+If no LLM backend is available, skip with `git commit --no-verify`.
