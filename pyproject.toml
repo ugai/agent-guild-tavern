@@ -6,6 +6,13 @@ requires-python = ">=3.11"
 [dependency-groups]
 dev = [
     "pytest>=8",
-    "pytest-llm-rubric>=0.2",
+    "pytest-llm-rubric>=0.3",
     "pyyaml>=6",
+]
+
+[tool.pytest.ini_options]
+llm_rubric_auto_models = [
+    "ollama:gpt-oss:20b",
+    "ollama:qwen3.5:9b",
+    "anthropic:claude-haiku-4-5",
 ]

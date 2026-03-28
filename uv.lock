@@ -19,7 +19,7 @@ dev = [
 [package.metadata.requires-dev]
 dev = [
     { name = "pytest", specifier = ">=8" },
-    { name = "pytest-llm-rubric", specifier = ">=0.2" },
+    { name = "pytest-llm-rubric", specifier = ">=0.3" },
     { name = "pyyaml", specifier = ">=6" },
 ]
 
@@ -456,15 +456,15 @@ wheels = [
 
 [[package]]
 name = "pytest-llm-rubric"
-version = "0.2.0"
+version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "any-llm-sdk", extra = ["ollama"] },
     { name = "pytest" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e4/34/14af37698f4fb3cf56cce99b62e4eb8fe1774e7ffac6e354e9195e094852/pytest_llm_rubric-0.2.0.tar.gz", hash = "sha256:667b75069026424e3a1b65df441ea3294bae1804456f54fcb2add065b62fcf14", size = 13448, upload-time = "2026-03-26T00:15:05.842Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ed/38/ed194e6c3cb42e21824f378d1f52c0b896cdde34d930b124a9eae55aafdc/pytest_llm_rubric-0.3.0.tar.gz", hash = "sha256:935a321c4c2660cf229214f1b036ff959b9f37c3e2a66a8aa3a3e69101b2642b", size = 15272, upload-time = "2026-03-28T03:35:00.234Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/76/e5/5d5ea8483a0a4d0495ad575a8b63b0f82c2facc12543fbc9df9a89b93956/pytest_llm_rubric-0.2.0-py3-none-any.whl", hash = "sha256:96e345253024f333e120d6e84cf46a9a22c993ff681ca22a295d2786d2046c91", size = 16711, upload-time = "2026-03-26T00:15:04.463Z" },
+    { url = "https://files.pythonhosted.org/packages/20/a2/f8877da80cdc429686d1e88194ed3227c4b8caa7789309572eec480a206a/pytest_llm_rubric-0.3.0-py3-none-any.whl", hash = "sha256:2749b9604186d1914af6e47a47a4144c4667bdab32b346531e6f7026bb587c4a", size = 18693, upload-time = "2026-03-28T03:34:58.788Z" },
 ]
 
 [[package]]
