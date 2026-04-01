@@ -1,6 +1,10 @@
+<p align="center">
+  <img src="docs/assets/cool_tavern_logo.jpg" width="700" alt="cool-logo">
+</p>
+
 # Agent Guild Tavern
 
-A reusable multi-agent workflow for autonomous software development. Agents
+A reusable multi-agent skills workflow for autonomous software development. Agents
 scout issues, plan sprints, implement fixes, audit test coverage, and deliver
 pull requests — all coordinated through GitHub Issues and git worktrees.
 
