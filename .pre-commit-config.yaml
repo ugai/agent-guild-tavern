@@ -6,10 +6,10 @@ repos:
         entry: uv run pytest tests/test_snippet_sync.py -q
         language: system
         pass_filenames: false
-        files: '(snippets/|skills/.*/ENV\.md)'
+        files: '(snippets/|plugins/guild-tavern/skills/.*/ENV\.md)'
       - id: rubric-lint
         name: Verify shared rules in SKILL.md
         entry: uv run pytest tests/test_rubric_lint.py -q
         language: system
         pass_filenames: false
-        files: '(rubrics/|skills/.*/SKILL\.md)'
+        files: '(rubrics/|plugins/guild-tavern/skills/.*/SKILL\.md)'

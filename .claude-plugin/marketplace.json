@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "guild-tavern",
-      "source": "./",
+      "source": "./plugins/guild-tavern",
       "description": "Agent Guild skill set — issue discovery, implementation, QA, and sprint orchestration"
     }
   ]

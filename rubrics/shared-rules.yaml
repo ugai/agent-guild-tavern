@@ -8,7 +8,7 @@
 # both: (1) the skill contains a reference, and (2) the referenced document
 # defines the rule.
 
-reference_doc: skills/reading-guild-rules/SKILL.md
+reference_doc: plugins/guild-tavern/skills/reading-guild-rules/SKILL.md
 
 criteria:
   - id: eligibility

@@ -11,7 +11,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 SNIPPETS_DIR = ROOT / "snippets"
-SKILLS_DIR = ROOT / "skills"
+SKILLS_DIR = ROOT / "plugins" / "guild-tavern" / "skills"
 
 # Mapping: snippet filename -> list of skill directories that must contain it
 SNIPPET_TARGETS: dict[str, list[str]] = {

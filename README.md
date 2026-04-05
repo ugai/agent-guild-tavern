@@ -24,9 +24,9 @@ Issues labeled `agent:ready` are autonomously implemented and delivered as pull 
 <td align="center" width="33%"><img src="docs/assets/portrait-agent-raid-commander.png" width="220" alt="issue-raid-commander"></td>
 </tr>
 <tr>
-<td align="center"><strong><code>issue-ranger</code></strong><br><sub><a href="skills/issue-ranger/SKILL.md">SKILL.md</a> | <a href="agents/issue-ranger.md">Agent</a></sub></td>
-<td align="center"><strong><code>issue-slayer</code></strong><br><sub><a href="skills/issue-slayer/SKILL.md">SKILL.md</a> | <a href="agents/issue-slayer.md">Agent</a></sub></td>
-<td align="center"><strong><code>issue-raid-commander</code></strong><br><sub><a href="skills/issue-raid-commander/SKILL.md">SKILL.md</a> | <a href="agents/issue-raid-commander.md">Agent</a></sub></td>
+<td align="center"><strong><code>issue-ranger</code></strong><br><sub><a href="plugins/guild-tavern/skills/issue-ranger/SKILL.md">SKILL.md</a> | <a href="plugins/guild-tavern/agents/issue-ranger.md">Agent</a></sub></td>
+<td align="center"><strong><code>issue-slayer</code></strong><br><sub><a href="plugins/guild-tavern/skills/issue-slayer/SKILL.md">SKILL.md</a> | <a href="plugins/guild-tavern/agents/issue-slayer.md">Agent</a></sub></td>
+<td align="center"><strong><code>issue-raid-commander</code></strong><br><sub><a href="plugins/guild-tavern/skills/issue-raid-commander/SKILL.md">SKILL.md</a> | <a href="plugins/guild-tavern/agents/issue-raid-commander.md">Agent</a></sub></td>
 </tr>
 <tr>
 <td align="center" valign="top"><br><em>No Unknown Unknowns.</em><br><br>Ranges far. Crawls deep. Every wound in the codebase — named, scoped, filed. Nothing escapes the board.</td>
@@ -35,13 +35,13 @@ Issues labeled `agent:ready` are autonomously implemented and delivered as pull 
 </tr>
 </table>
 
-*`quality-finisher` (apprentice) — Audits post-slayer PRs for test coverage. Still learning the trade. [`SKILL.md`](skills/quality-finisher/SKILL.md)*
+*`quality-finisher` (apprentice) — Audits post-slayer PRs for test coverage. Still learning the trade. [`SKILL.md`](plugins/guild-tavern/skills/quality-finisher/SKILL.md)*
 
 ### Workflow
 
 <table>
 <tr>
-<td align="center"><strong><code>dispatching-guild-expedition</code></strong><br><sub><a href="skills/dispatching-guild-expedition/SKILL.md">SKILL.md</a></sub></td>
+<td align="center"><strong><code>dispatching-guild-expedition</code></strong><br><sub><a href="plugins/guild-tavern/skills/dispatching-guild-expedition/SKILL.md">SKILL.md</a></sub></td>
 </tr>
 <tr>
 <td align="center"><img src="docs/assets/cover-art-epic-expedition.jpg" width="600" alt="dispatching-guild-expedition"></td>
@@ -81,15 +81,15 @@ git clone https://github.com/ugai/agent-guild-tavern.git
 
 # Copy skills and agents into your project
 mkdir -p .claude/skills .claude/agents
-cp -r ./agent-guild-tavern/skills/* .claude/skills/
-cp -r ./agent-guild-tavern/agents/* .claude/agents/
+cp -r ./agent-guild-tavern/plugins/guild-tavern/skills/* .claude/skills/
+cp -r ./agent-guild-tavern/plugins/guild-tavern/agents/* .claude/agents/
 ```
 
 ### Project Setup
 
 After installing, your project needs:
 
-1. **GitHub labels**: `agent:ready`, `agent:proposed` — see [reading-guild-rules](skills/reading-guild-rules/SKILL.md)
+1. **GitHub labels**: `agent:ready`, `agent:proposed` — see [reading-guild-rules](plugins/guild-tavern/skills/reading-guild-rules/SKILL.md)
 2. **Project-specific rules** (optional): add conflict-prone files, module
    conventions, etc. to your project's `CLAUDE.md`
 
@@ -114,7 +114,7 @@ This prints the full workflow guide, skill descriptions, and label conventions. 
 
 ## Workflow
 
-See [reading-guild-rules](skills/reading-guild-rules/SKILL.md) for the
+See [reading-guild-rules](plugins/guild-tavern/skills/reading-guild-rules/SKILL.md) for the
 complete workflow documentation, including:
 
 - Recommended workflow (Scout → Approve → Analyze → Implement → Review → Verify)

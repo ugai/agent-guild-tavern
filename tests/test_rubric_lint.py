@@ -17,7 +17,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
 RUBRIC_PATH = ROOT / "rubrics" / "shared-rules.yaml"
-SKILLS_DIR = ROOT / "skills"
+SKILLS_DIR = ROOT / "plugins" / "guild-tavern" / "skills"
 
 
 def _load_rubric() -> dict:
