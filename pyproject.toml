@@ -5,6 +5,7 @@ requires-python = ">=3.11"
 
 [dependency-groups]
 dev = [
+    "any-llm-sdk[anthropic]>=1.12.1",
     "pytest>=8",
     "pytest-llm-rubric>=0.3",
     "pyyaml>=6",
