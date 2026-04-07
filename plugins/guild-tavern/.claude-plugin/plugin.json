@@ -1,7 +1,7 @@
 {
   "name": "guild-tavern",
   "description": "Agent Guild skill set — issue discovery, implementation, QA, and sprint orchestration",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "ugai"
   },
