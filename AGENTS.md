@@ -55,7 +55,7 @@ Shared rules (eligibility, priority, label protocol, etc.) from
 uv run pytest tests/test_rubric_lint.py -v
 ```
 
-Requires an LLM backend. Configure `llm_rubric_auto_models` in
+Requires an LLM backend. Configure `llm_rubric_models` in
 `pyproject.toml` (Ollama by default; falls back to Anthropic if
 `ANTHROPIC_API_KEY` is set). See `pyproject.toml` for the current list.
 
