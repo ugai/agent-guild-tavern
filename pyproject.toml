@@ -7,12 +7,12 @@ requires-python = ">=3.11"
 dev = [
     "any-llm-sdk[anthropic]>=1.12.1",
     "pytest>=8",
-    "pytest-llm-rubric>=0.3",
+    "pytest-llm-rubric>=0.4",
     "pyyaml>=6",
 ]
 
 [tool.pytest.ini_options]
-llm_rubric_auto_models = [
+llm_rubric_models = [
     "ollama:gpt-oss:20b",
     "ollama:qwen3.5:9b",
     "anthropic:claude-haiku-4-5",
